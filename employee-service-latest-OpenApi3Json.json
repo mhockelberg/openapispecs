@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Employee Service",
+    "description": "Employee data service.",
+    "contact": {},
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://employeeapi.apps.ocp.integration.redhatgov.io:443/myfuselab",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/employees/all": {
+      "get": {
+        "summary": "EmployeesAll_GET",
+        "operationId": "EmployeesallGet",
+        "parameters": [
+          {
+            "name": "user_key",
+            "in": "query",
+            "description": "API key.",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "Success"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "user_key": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "user_key": {
+        "type": "apiKey",
+        "description": "API Key",
+        "name": "user_key",
+        "in": "query"
+      }
+    }
+  },
+  "security": [
+    {
+      "user_key": []
+    }
+  ],
+  "tags": []
+}

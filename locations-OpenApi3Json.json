@@ -1,0 +1,494 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Locations-User1",
+    "description": "version=1.0.0 - Locations API description",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http:",
+      "variables": {}
+    },
+    {
+      "url": "http://http:",
+      "variables": {}
+    },
+    {
+      "url": "http://locations",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "///locations": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Retreive all Locations",
+        "description": "TODO: Add Description",
+        "operationId": "RetreiveAllLocations",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/location"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Kamarhati",
+                    "type": "Regional Branch",
+                    "status": "1",
+                    "location": {
+                      "lat": "-28.32555",
+                      "lng": "-5.91531"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "name": "Otranto",
+                    "type": "Local Office",
+                    "status": "1",
+                    "location": {
+                      "lat": "-8.01254",
+                      "lng": "101.47364"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "name": "Millesimo",
+                    "type": "Headquarter",
+                    "status": "1",
+                    "location": {
+                      "lat": "78.88435",
+                      "lng": "99.05294"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http:",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "//http:/locations/{id}": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Retreive Location by id",
+        "description": "TODO: Add Description",
+        "operationId": "RetreiveLocationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetreiveLocationID"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "Kamarhati",
+                  "type": "Regional Branch",
+                  "status": "1",
+                  "location": {
+                    "lat": "-28.32555",
+                    "lng": "-5.91531"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http:",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "//http:/location/phone/{id}": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Retreive phone using Location ID",
+        "description": "TODO: Add Description",
+        "operationId": "RetreivePhoneUsingLocationId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetreivephoneusingLocationID"
+                },
+                "example": {
+                  "id": 4,
+                  "operatingHour": "8:00 AM - 5:00 PM",
+                  "owner": "XXX XXX",
+                  "phone": "345-678-9567"
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http:",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "//locations": {
+      "post": {
+        "tags": [
+          "locations"
+        ],
+        "summary": "Create (add) a new Location",
+        "description": "TODO: Add Description",
+        "operationId": "Create(add)ANewLocation",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create(add)anewLocationRequest"
+              },
+              "example": "{\"id\":101,\"name\":\"International Inc Canada\",\"location\":{\"lat\":43.6532,\"lng\":79.3832},\"type\":\"Headquarter\",\"status\":\"1\"}"
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http:",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "location": {
+        "title": "location",
+        "required": [
+          "id",
+          "name",
+          "type",
+          "status",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Kamarhati"
+          },
+          "type": {
+            "type": "string",
+            "example": "Regional Branch"
+          },
+          "status": {
+            "type": "string",
+            "example": "1"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location1"
+          }
+        },
+        "example": {
+          "id": 1,
+          "name": "Kamarhati",
+          "type": "Regional Branch",
+          "status": "1",
+          "location": {
+            "lat": "-28.32555",
+            "lng": "-5.91531"
+          }
+        }
+      },
+      "Location1": {
+        "title": "Location1",
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "string",
+            "example": "-28.32555"
+          },
+          "lng": {
+            "type": "string",
+            "example": "-5.91531"
+          }
+        },
+        "example": {
+          "lat": "-28.32555",
+          "lng": "-5.91531"
+        }
+      },
+      "RetreiveLocationID": {
+        "title": "RetreiveLocationID",
+        "required": [
+          "id",
+          "name",
+          "type",
+          "status",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location1"
+          }
+        },
+        "example": {
+          "id": 1,
+          "name": "Kamarhati",
+          "type": "Regional Branch",
+          "status": "1",
+          "location": {
+            "lat": "-28.32555",
+            "lng": "-5.91531"
+          }
+        }
+      },
+      "RetreivephoneusingLocationID": {
+        "title": "RetreivephoneusingLocationID",
+        "required": [
+          "id",
+          "operatingHour",
+          "owner",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operatingHour": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 4,
+          "operatingHour": "8:00 AM - 5:00 PM",
+          "owner": "XXX XXX",
+          "phone": "345-678-9567"
+        }
+      },
+      "Create(add)anewLocationRequest": {
+        "title": "Create(add)anewLocationRequest",
+        "required": [
+          "id",
+          "name",
+          "location",
+          "type",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location3"
+          },
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 101,
+          "name": "International Inc Canada",
+          "location": {
+            "lat": 43.6532,
+            "lng": 79.3832
+          },
+          "type": "Headquarter",
+          "status": "1"
+        }
+      },
+      "Location3": {
+        "title": "Location3",
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "locations",
+      "description": "Folder for locations"
+    }
+  ]
+}
